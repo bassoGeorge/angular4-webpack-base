@@ -53,6 +53,13 @@ module.exports = {
                 // webpack configuration
                 loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader?sourceMap' })
             },
+            {
+                test: /\.styl$/,
+                exclude: helpers.root('src', 'app'),
+                // The plugin side of extract text will be different for each env, so will be there in their respective
+                // webpack configuration
+                loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader?sourceMap!stylus-loader' })
+            },
 
             // all component scoped styles are to be loaded as raw strings into the javascript
             // These are the styleUrls in components.. angualr2-template-loader will do its job and then this
@@ -61,6 +68,11 @@ module.exports = {
                 test: /\.css$/,
                 include: helpers.root('src', 'app'),
                 loaders: 'raw-loader'
+            },
+            {
+                test: /\.styl$/,
+                include: helpers.root('src', 'app'),
+                loaders: 'raw-loader!stylus-loader'
             }
         ]
     },
