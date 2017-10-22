@@ -8,9 +8,8 @@ import '../assets/css/normalize.css';
 import '../assets/css/site.styl';
 
 @NgModule({
-  imports: [ BrowserModule ],
-  declarations: [ AppComponent ],
-  bootstrap: [ AppComponent ]
+    imports: [ BrowserModule ],
+    declarations: [ AppComponent ],
+    bootstrap: [ AppComponent ]
 })
 export class AppModule { }
-
